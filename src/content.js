@@ -1,15 +1,26 @@
-let mergeButton;
 let sound;
+const SOUND_EFFECT_URL = "sound-effect.mp3";
 
-const MERGE_TEXTS = ["Squash and merge", "Merge pull request", "Rebase and merge"]; // For testing
-// const MERGE_TEXTS = ["Confirm squash and merge", "Confirm merge", "Confirm rebase and merge"]; // For production
+const MERGE_STRINGS = ["Confirm merge", "Confirm squash and merge", "Confirm rebase and merge"];
+const CREATE_STRINGS = ["Create pull request"];
 
-const displayMessage = () => {
-  console.log("PR MERGED")
+const MERGE_MESSAGE = "PR MERGED";
+const CREATE_MESSAGE = "PR CREATED";
+
+const loadSoundEffect = () => {
+  try {
+    sound = new Audio(chrome.runtime.getURL(SOUND_EFFECT_URL
+    ));
+  } catch (error) {
+    console.error("sound effect not loaded")
+  }
+}
+
+const displayMessage = (msg) => {
 
   const text = document.createElement("p")
   text.classList.add("ds-text")
-  text.textContent = "PR MERGED"
+  text.textContent = msg
 
   const textWrapper = document.createElement("div")
   textWrapper.classList.add("ds-text-wrapper")
@@ -23,7 +34,6 @@ const displayMessage = () => {
   overlay.classList.add("ds-overlay")
   overlay.appendChild(textbox)
 
-  console.log(sound)
   sound.play();
   document.body.append(overlay)
 
@@ -32,48 +42,35 @@ const displayMessage = () => {
   }, 6000)
 }
 
-const getMergeButtonIfAvailable = () => {
-
-  const spans = document.querySelectorAll("span");
-  console.log(spans.length)
-
-  spans.forEach((span) => {
-    if (MERGE_TEXTS.includes(span.textContent.trim())) {
-      console.log("merge button found")
-      mergeButton = span
-    }
-  })
-
-}
-
-const assignMergeButtonListener = () => {
-
-  if (!mergeButton) return
-
-  mergeButton.addEventListener("click", displayMessage)
-}
-
 document.addEventListener("click", (e) => {
+  const target = e.target;
+  const targetText = target.textContent.trim()
 
-  console.log(e.target.textContent)
+  const isButton = target.closest('button')
+  if (!isButton) return
+  // console.log("button clicked")
 
-  if (mergeButton) return
+  const isMergeClick = MERGE_STRINGS.some(text =>
+    targetText.includes(text)
+  );
+  if (isMergeClick) {
+    // console.log("merge button clicked")
+    displayMessage(MERGE_MESSAGE)
+    return
+  }
 
-  getMergeButtonIfAvailable()
-  console.log("button found")
-
-  assignMergeButtonListener()
-  console.log("button listener loaded")
+  // const isCreateClick = CREATE_STRINGS.some(text =>
+  //   targetText.includes(text)
+  // );
+  // if (isCreateClick) {
+  //   displayMessage(CREATE_MESSAGE)
+  //   return
+  // }
 })
 
 window.addEventListener("load", () => {
-  console.log("page loaded, setting up")
+  // console.log("page loaded, setting up...")
 
-  try {
-    sound = new Audio(chrome.runtime.getURL("sound-effect.mp3"));
-  } catch (error) {
-    console.log("sound effect not found")
-  }
-  console.log("sound effect loaded")
+  loadSoundEffect()
+  // console.log("sound effect loaded")
 })
-
