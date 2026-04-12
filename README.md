@@ -36,7 +36,7 @@ ds-merge-pr/
 └── src/
     ├── manifest.json      # Extension configuration
     ├── content.js         # The "Brain" (DOM manipulation & click logic)
-    ├── styles.css         # The "Stage" (Animations & Dark Souls styling)
+    ├── styles.css         # The "Stage" (Animations & Souls-Like styling)
     └── assets/
         ├── sound-effect.mp3
         ├── icon64.png
