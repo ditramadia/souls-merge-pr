@@ -23,8 +23,13 @@ const displayMessage = () => {
   overlay.classList.add("ds-overlay")
   overlay.appendChild(textbox)
 
+  console.log(sound)
   sound.play();
   document.body.append(overlay)
+
+  setTimeout(() => {
+    document.body.removeChild(overlay)
+  }, 6000)
 }
 
 const getMergeButtonIfAvailable = () => {
@@ -48,18 +53,27 @@ const assignMergeButtonListener = () => {
   mergeButton.addEventListener("click", displayMessage)
 }
 
-document.addEventListener("click", () => {
+document.addEventListener("click", (e) => {
+
+  console.log(e.target.textContent)
 
   if (mergeButton) return
 
   getMergeButtonIfAvailable()
+  console.log("button found")
+
   assignMergeButtonListener()
+  console.log("button listener loaded")
 })
 
 window.addEventListener("load", () => {
-  // On load
-  sound = new Audio('sound-effect.m4a');
-  getMergeButtonIfAvailable()
-  assignMergeButtonListener()
+  console.log("page loaded, setting up")
+
+  try {
+    sound = new Audio(chrome.runtime.getURL("sound-effect.mp3"));
+  } catch (error) {
+    console.log("sound effect not found")
+  }
+  console.log("sound effect loaded")
 })
 

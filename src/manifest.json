@@ -13,5 +13,11 @@
       "js": ["content.js"],
       "css": ["styles.css"]
     }
-  ]
+  ],
+  "web_accessible_resources": [
+  {
+    "resources": ["sound-effect.mp3"],
+    "matches": ["https://github.com/*"]
+  }
+]
 }
