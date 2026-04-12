@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+
+.ds-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 99999;
+
+  width: 100vw;
+  height: 100vh;
+
+  opacity: 96%;
+  pointer-events: none;
+
+  display: flex;
+  align-items: center;
+}
+
+.ds-textbox {
+  width: 100%;
+  height: fit-content;
+  opacity: 0;
+
+  padding: 1rem;
+
+  background-image: linear-gradient(to bottom, rgba(1, 1, 1, 0), rgba(1, 1, 1, 0.9) 15%, rgba(1, 1, 1, 0.9) 85%, rgba(1, 1, 1, 0));
+
+  animation: textbox 6s;
+}
+
+.ds-text-wrapper {
+  opacity: 0%;
+
+  animation: text-wrapper 6s linear 0.75s;
+}
+
+.ds-text {
+  font-family: "Cinzel", serif;
+  font-size: 8rem;
+
+  text-align: center;
+  color: #832B2A;
+
+  transform: scaleY(1.2)
+}
+
+@keyframes textbox {
+  0% {
+    opacity: 0%;
+  }
+
+  10% {
+    opacity: 100%;
+  }
+
+  90% {
+    opacity: 100%
+  }
+
+  100% {
+    opacity: 0%;
+  }
+}
+
+@keyframes text-wrapper {
+  0% {
+    opacity: 0%;
+    transform: scale(0.75);
+  }
+
+  10% {
+    opacity: 100%;
+  }
+
+  90% {
+    opacity: 100%;
+  }
+
+  100% {
+    opacity: 0%;
+    transform: scaleY(1);
+  }
+}

@@ -1,4 +1,5 @@
 let mergeButton;
+let sound;
 
 const MERGE_TEXTS = ["Squash and merge", "Merge pull request", "Rebase and merge"]; // For testing
 // const MERGE_TEXTS = ["Confirm squash and merge", "Confirm merge", "Confirm rebase and merge"]; // For production
@@ -6,10 +7,24 @@ const MERGE_TEXTS = ["Squash and merge", "Merge pull request", "Rebase and merge
 const displayMessage = () => {
   console.log("PR MERGED")
 
-  const overlay = document.createElement("div")
+  const text = document.createElement("p")
+  text.classList.add("ds-text")
+  text.textContent = "PR MERGED"
+
+  const textWrapper = document.createElement("div")
+  textWrapper.classList.add("ds-text-wrapper")
+  textWrapper.appendChild(text)
+
   const textbox = document.createElement("div")
-  const text = document.createElement("span")
-  document.append()
+  textbox.classList.add("ds-textbox")
+  textbox.appendChild(textWrapper)
+
+  const overlay = document.createElement("div")
+  overlay.classList.add("ds-overlay")
+  overlay.appendChild(textbox)
+
+  sound.play();
+  document.body.append(overlay)
 }
 
 const getMergeButtonIfAvailable = () => {
@@ -43,9 +58,8 @@ document.addEventListener("click", () => {
 
 window.addEventListener("load", () => {
   // On load
-  // getMergeButtonIfAvailable()
-  // assignMergeButtonListener()
-
-  displayMessage()
+  sound = new Audio('sound-effect.m4a');
+  getMergeButtonIfAvailable()
+  assignMergeButtonListener()
 })
 
