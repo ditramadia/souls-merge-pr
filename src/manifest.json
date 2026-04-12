@@ -3,10 +3,10 @@
   "name": "Dark Souls PR Merged",
   "version": "1.0",
   "description": "Displays a 'PR MERGED' overlay in the style of Dark Souls.",
-  // "icons": {
-  //   "48": "icon48.png",
-  //   "128": "icon128.png"
-  // },
+  "icons": {
+    "48": "assets/icon64.png",
+    "128": "assets/icon128.png"
+  },
   "content_scripts": [
     {
       "matches": ["https://github.com/*"],
@@ -16,7 +16,7 @@
   ],
   "web_accessible_resources": [
   {
-    "resources": ["sound-effect.mp3"],
+    "resources": ["assets/sound-effect.mp3"],
     "matches": ["https://github.com/*"]
   }
 ]

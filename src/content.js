@@ -1,5 +1,5 @@
 let sound;
-const SOUND_EFFECT_URL = "sound-effect.mp3";
+const SOUND_EFFECT_URL = "assets/sound-effect.mp3";
 
 const MERGE_STRINGS = ["Confirm merge", "Confirm squash and merge", "Confirm rebase and merge"];
 const CREATE_STRINGS = ["Create pull request"];
