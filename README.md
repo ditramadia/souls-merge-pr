@@ -19,6 +19,10 @@ This extension brings the crushing weight and eventual triumph of a 'Souls-like'
 
 A cinematic tribute to the legendary hardcore RPG genre. Every time you successfully merge a Pull Request, you are greeted with a cinematic "PR MERGED" overlay and the iconic sound effect.
 
+<div align="center">
+  <img src="./public/screenshot.png" alt="PR Merged title screen" width="800px" />
+</div>
+
 # ✨ Features
 
 * Cinematic Overlay: A full-screen "PR MERGED" message styled with the Cinzel font and a blood-red gradient.
