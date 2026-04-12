@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
 
-.ds-overlay {
+.souls-overlay {
   position: fixed;
   top: 0;
   right: 0;
@@ -18,7 +18,7 @@
   align-items: center;
 }
 
-.ds-textbox {
+.souls-textbox {
   width: 100%;
   height: fit-content;
   opacity: 0;
@@ -30,13 +30,13 @@
   animation: textbox 6s;
 }
 
-.ds-text-wrapper {
+.souls-text-wrapper {
   opacity: 0%;
 
   animation: text-wrapper 6s linear 0.75s;
 }
 
-.ds-text {
+.souls-text {
   font-family: "Cinzel", serif;
   font-size: 8rem;
 

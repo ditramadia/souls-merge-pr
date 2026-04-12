@@ -19,19 +19,19 @@ const loadSoundEffect = () => {
 const displayMessage = (msg) => {
 
   const text = document.createElement("p")
-  text.classList.add("ds-text")
+  text.classList.add("souls-text")
   text.textContent = msg
 
   const textWrapper = document.createElement("div")
-  textWrapper.classList.add("ds-text-wrapper")
+  textWrapper.classList.add("souls-text-wrapper")
   textWrapper.appendChild(text)
 
   const textbox = document.createElement("div")
-  textbox.classList.add("ds-textbox")
+  textbox.classList.add("souls-textbox")
   textbox.appendChild(textWrapper)
 
   const overlay = document.createElement("div")
-  overlay.classList.add("ds-overlay")
+  overlay.classList.add("souls-overlay")
   overlay.appendChild(textbox)
 
   sound.play();
