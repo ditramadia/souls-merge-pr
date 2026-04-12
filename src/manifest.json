@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Dark Souls PR Merged",
+  "version": "1.0",
+  "description": "Displays a 'PR MERGED' overlay in the style of Dark Souls.",
+  // "icons": {
+  //   "48": "icon48.png",
+  //   "128": "icon128.png"
+  // },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}
