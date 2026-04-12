@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Dark Souls Merge PR",
+  "name": "Souls-Like Merge PR",
   "version": "1.0",
   "description": "Displays a 'PR MERGED' overlay in the style of Dark Souls.",
   "icons": {
