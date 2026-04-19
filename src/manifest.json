@@ -10,14 +10,14 @@
   "content_scripts": [
     {
       "matches": ["https://github.com/*"],
-      "js": ["content.js"],
+      "js": ["ui.js", "merge-pr-feature.js", "index.js"],
       "css": ["styles.css"]
     }
   ],
   "web_accessible_resources": [
-  {
-    "resources": ["assets/sound-effect.mp3"],
-    "matches": ["https://github.com/*"]
-  }
-]
+    {
+      "resources": ["assets/sound-effect.mp3"],
+      "matches": ["https://github.com/*"]
+    }
+  ]
 }
