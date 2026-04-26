@@ -51,6 +51,7 @@
 
   mix-blend-mode: multiply;
   transform: scaleY(1.2);
+  text-transform: uppercase;
 }
 
 @keyframes textbox {
