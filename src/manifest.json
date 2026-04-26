@@ -10,7 +10,7 @@
   "content_scripts": [
     {
       "matches": ["https://github.com/*"],
-      "js": ["ui.js", "workflow.js", "merge-pr.js", "index.js"],
+      "js": ["ui.js", "workflow.js", "merge-pr.js", "create-pr.js", "index.js"],
       "css": ["styles.css"]
     }
   ],
